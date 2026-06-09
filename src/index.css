@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* Custom theme configuration using @theme directive */
+@theme {
+  /* Deep Navy */
+  --color-deep-navy-50: #e8e9f0;
+  --color-deep-navy-100: #d1d3e1;
+  --color-deep-navy-200: #a3a7c3;
+  --color-deep-navy-300: #757ba5;
+  --color-deep-navy-400: #474f87;
+  --color-deep-navy-500: #1a2369;
+  --color-deep-navy-600: #151c54;
+  --color-deep-navy-700: #10153f;
+  --color-deep-navy-800: #0a0e2a;
+  --color-deep-navy-900: #050715;
+  
+  /* Clear Navy */
+  --color-clear-navy-50: #eef2fc;
+  --color-clear-navy-100: #dde5f9;
+  --color-clear-navy-200: #bbcbf3;
+  --color-clear-navy-300: #99b1ed;
+  --color-clear-navy-400: #7797e7;
+  --color-clear-navy-500: #557de1;
+  --color-clear-navy-600: #4464b4;
+  --color-clear-navy-700: #334b87;
+  --color-clear-navy-800: #22325a;
+  --color-clear-navy-900: #11192d;
+  
+  /* Professional Green */
+  --color-professional-green-50: #eaf7ef;
+  --color-professional-green-100: #d5efdf;
+  --color-professional-green-200: #abdfbf;
+  --color-professional-green-300: #81cf9f;
+  --color-professional-green-400: #57bf7f;
+  --color-professional-green-500: #2daf5f;
+  --color-professional-green-600: #248c4c;
+  --color-professional-green-700: #1b6939;
+  --color-professional-green-800: #124626;
+  --color-professional-green-900: #092313;
+  
+  /* Trust Red */
+  --color-trust-red-50: #fdeef0;
+  --color-trust-red-100: #fbdde1;
+  --color-trust-red-200: #f7bbc3;
+  --color-trust-red-300: #f399a5;
+  --color-trust-red-400: #ef7787;
+  --color-trust-red-500: #eb5569;
+  --color-trust-red-600: #bc4454;
+  --color-trust-red-700: #8d333f;
+  --color-trust-red-800: #5e222a;
+  --color-trust-red-900: #2f1115;
+  
+  /* Soft Cream */
+  --color-soft-cream-50: #fefcf8;
+  --color-soft-cream-100: #fdf9f1;
+  --color-soft-cream-200: #fbf3e3;
+  --color-soft-cream-300: #f9edd5;
+  --color-soft-cream-400: #f7e7c7;
+  --color-soft-cream-500: #f5e1b9;
+  --color-soft-cream-600: #c4b494;
+  --color-soft-cream-700: #93876f;
+  --color-soft-cream-800: #625a4a;
+  --color-soft-cream-900: #312d25;
+  
+  /* Font family */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  
+  /* Custom animations */
+  --animate-float: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Custom utilities */
+@utility container-custom {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@utility section-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: var(--color-deep-navy-800);
+  margin-bottom: 1rem;
+}
+
+@media (width >= 48rem) {
+  .section-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+@utility section-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: var(--color-gray-600);
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Base styles */
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--color-soft-cream-50);
+  }
+  
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
