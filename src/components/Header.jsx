@@ -3,8 +3,9 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
-// Import your logo
-import logoImage from '../assets/3d ppra transparent.png'
+// Import your logos
+import iconLogo from '../assets/3d ppra transparent.png'
+import textLogo from '../assets/text ppra logo - Copy.png'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -131,19 +132,19 @@ export default function Header() {
                 onMouseLeave={handleLogoLeave}
                 className="flex items-center gap-3 group shrink-0"
               >
-                {/* Logo Image */}
+                {/* 3D Icon Logo */}
                 <img 
-                  src={logoImage} 
-                  alt="PPRA Logo" 
+                  src={iconLogo} 
+                  alt="PPRA Icon" 
                   className="w-20 h-20 md:w-25 md:h-25 object-contain transition-transform duration-500 ease-out group-hover:scale-105"
                 />
+                {/* Text Logo Image */}
                 <div className="logo-text-container">
-                  <span className="font-bold text-lg md:text-xl text-deep-navy-800 tracking-tight block">
-                    PPRA
-                  </span>
-                  <span className="hidden md:block text-[11px] font-medium text-gray-500 tracking-wide uppercase">
-                    Public Procurement Regulatory Authority
-                  </span>
+                  <img 
+                    src={textLogo} 
+                    alt="PPRA Logo Text" 
+                    className="h-8 md:h-40 w-auto object-contain"
+                  />
                 </div>
               </Link>
             </div>
@@ -165,7 +166,7 @@ export default function Header() {
                     }
                   >
                     <span>{link.label}</span>
-                    <span className={`absolute bottom-0 left-4 right-4 h-[2px] bg-clear-navy-500 origin-left transform transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${
+                    <span className={`absolute bottom-0 left-4 right-4 h-0.5 bg-clear-navy-500 origin-left transform transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${
                       location.pathname === link.to ? 'scale-x-100' : ''
                     }`}></span>
                   </NavLink>

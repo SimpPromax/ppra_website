@@ -6,6 +6,7 @@ import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import Services from './pages/Services'
 import NotFound from './pages/NotFound'
+import { ReactLenis } from 'lenis/react'; // Note the new clean import path
 
 function App() {
   // Prevent scroll restoration issues
@@ -14,6 +15,8 @@ function App() {
   }, [])
 
   return (
+// autoRaf: true automatically takes care of the frame-rate ticking for React 19
+    <ReactLenis root options={{ lerp: 0.1, duration: 1.5, autoRaf: true }}>
     <div className="min-h-screen flex flex-col">
       <ScrollToTop />
       <Header />
@@ -26,6 +29,7 @@ function App() {
       </main>
       <Footer />
     </div>
+    </ReactLenis>
   )
 }
 

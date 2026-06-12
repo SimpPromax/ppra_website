@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import 'lenis/dist/lenis.css';
 
 /* Custom theme configuration using @theme directive */
 @theme {
@@ -27,16 +28,16 @@
   --color-clear-navy-900: #11192d;
   
   /* Professional Green */
-  --color-professional-green-50: #eaf7ef;
-  --color-professional-green-100: #d5efdf;
-  --color-professional-green-200: #abdfbf;
-  --color-professional-green-300: #81cf9f;
-  --color-professional-green-400: #57bf7f;
-  --color-professional-green-500: #2daf5f;
-  --color-professional-green-600: #248c4c;
-  --color-professional-green-700: #1b6939;
-  --color-professional-green-800: #124626;
-  --color-professional-green-900: #092313;
+--color-professional-green-50: #ccffdd;
+--color-professional-green-100: #99ffbb;
+--color-professional-green-200: #66ff99;
+--color-professional-green-300: #33ff77;
+--color-professional-green-400: #00ff55;
+--color-professional-green-500: #00ff44;  /* Neon luminous green */
+--color-professional-green-600: #00cc37;
+--color-professional-green-700: #009929;
+--color-professional-green-800: #00661c;
+--color-professional-green-900: #00330e;
   
   /* Trust Red */
   --color-trust-red-50: #fdeef0;
@@ -51,16 +52,16 @@
   --color-trust-red-900: #2f1115;
   
   /* Soft Cream */
-  --color-soft-cream-50: #fefcf8;
-  --color-soft-cream-100: #fdf9f1;
-  --color-soft-cream-200: #fbf3e3;
-  --color-soft-cream-300: #f9edd5;
-  --color-soft-cream-400: #f7e7c7;
-  --color-soft-cream-500: #f5e1b9;
-  --color-soft-cream-600: #c4b494;
-  --color-soft-cream-700: #93876f;
-  --color-soft-cream-800: #625a4a;
-  --color-soft-cream-900: #312d25;
+--color-soft-cream-50: #fffdf5;
+--color-soft-cream-100: #fffbea;
+--color-soft-cream-200: #fff7d5;
+--color-soft-cream-300: #fff3c0;
+--color-soft-cream-400: #ffefab;
+--color-soft-cream-500: #ffeb96;  /* Pearl luminous cream */
+--color-soft-cream-600: #ccbc78;
+--color-soft-cream-700: #998d5a;
+--color-soft-cream-800: #665e3c;
+--color-soft-cream-900: #332f1e;
   
   /* Font family */
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -124,3 +125,93 @@
     flex-direction: column;
   }
 }
+
+/* Numbers Section Text Styles */
+.opsz-24 {
+  font-optical-sizing: auto;
+}
+
+.stat-line {
+  transition: all 0.1s ease-out;
+  will-change: transform, opacity, filter;
+}
+
+.stat-line-content {
+  display: inline-block;
+}
+
+/* Responsive text adjustments */
+@media (max-width: 640px) {
+  .stat-line-content span {
+    display: block;
+    margin-left: 0 !important;
+  }
+  
+  .stat-line-content span:first-child {
+    margin-bottom: 0.5rem;
+  }
+}
+/* Force uniform logo sizes */
+.ticker-item img {
+  width: 120px !important;
+  height: 80px !important;
+  object-fit: contain !important;
+}
+
+/* For specific logos that need adjustment */
+.ticker-item img[alt="Open Contracting Partnership"],
+.ticker-item img[alt="Open Ownership"],
+.ticker-item img[alt="Competition Authority of Kenya"] {
+  object-fit: scale-down !important;
+}
+
+/* Add to your global CSS for backdrop blur support */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
+
+/* For smooth scaling animations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ==========================================================================
+   Horizontal Scrolling Gallery Animation
+   ========================================================================== */
+
+/* 1. Outer Viewport Container */
+.moving-logo {
+  width: 100%;
+  overflow-x: hidden;
+  cursor: grab;
+}
+
+.moving-logo:active {
+  cursor: grabbing;
+}
+
+/* 2. Inner Flex Track (Animated via GSAP) */
+.moving-logo flex.flex-nowrap {
+  display: flex !important;
+  flex-direction: row;
+  width: max-content; /* Prevents the flex container from crushing inner item dimensions */
+  will-change: transform; /* Signals the browser to use GPU acceleration for silky smooth movement */
+}
+
+/* 3. Individual Slides Base Layout */
+.moving-logo-inner--desktop.slide {
+  flex-shrink: 0; /* Prevents slides from scaling down or compressing under flex parent pressure */
+}
+
+/* 4. Child Elements Hover Effects */
+.moving-logo-inner--desktop > div {
+  transition: transform 0.3s ease;
+}
+
+.moving-logo-inner--desktop > div:hover {
+  transform: scale(1.02);
+}
+
+
